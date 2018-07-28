@@ -1,8 +1,8 @@
-
 """----------------------------- actual code --------------------------------"""
 
 # import the pygame module, so you can use it
 import pygame
+import os
 
 # define a main function
 def main():
@@ -14,8 +14,8 @@ def main():
     screen = pygame.display.set_mode((800, 800))
 
     # load image (it is in same directory)
-    F_tile = pygame.image.load('F_tile.png')
-    scrabble_board = pygame.image.load('scrabble_board_800px.png')
+    F_tile = pygame.image.load(os.path.join('f_tile.png'))
+    scrabble_board = pygame.image.load(os.path.join('scrabble_board_800px.png'))
 
     # blit image to screen
     screen.fill((255,255,255))

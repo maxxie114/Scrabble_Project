@@ -16,7 +16,7 @@ class Main:
 		# self.tile = tile
         # self.tiles = tiles
 
-
+tile1 = Tile()
 def main():
 	# initialize the pygame module
 	# tile = Main()
@@ -24,11 +24,12 @@ def main():
 	# create a surface on screen that has the size of 240 x 180
 	screen = pyg.display.set_mode((800, 800))
 	# load image (it is in same directory)
-	F_tile = Tile.tile
+	F_tile = tile1.loadImage("H")
 	scrabble_board = board.board
 	# resize image
 	# picture = pygame.image.load(filename)
-	F_tile = pyg.transform.scale(F_tile, (40, 40))
+	# F_tile = pyg.transform.scale(F_tile, (40, 40))
+	F_tile = tile1.setSize(40,40,F_tile)
 	# blit image to screen
 	screen.fill((255,255,255))
 	screen.blit(scrabble_board, (0, 0))

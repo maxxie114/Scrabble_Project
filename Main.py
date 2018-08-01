@@ -1,5 +1,3 @@
-"""----------------------------- actual code --------------------------------"""
-
 # import the pygame module, so you can use it
 import pygame as pyg
 import os

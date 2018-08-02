@@ -1,7 +1,7 @@
 # import the pygame module, so you can use it
 import pygame as pyg
 import os
-
+default = 1            
 tileList = {"A":'tiles/A.png',
             "B":'tiles/B.png',
             "C":'tiles/C.png',
@@ -31,7 +31,32 @@ tileList = {"A":'tiles/A.png',
 }
 # create class
 class Tile:
-
+    tileScore ={"A":default, 
+            "B":3 ,
+            "C":3 ,
+            "D":default ,
+            "E":default ,
+            "F":4 ,
+            "G":2 ,
+            "H":4 , 
+            "I":default , 
+            "J":8 ,
+            "K":5 ,
+            "L":default , 
+            "M":3 , 
+            "N":default ,
+            "O":default ,
+            "P":3 ,
+            "Q":10 , 
+            "R":default ,
+            "S":default ,
+            "T":default ,
+            "U":default ,
+            "V":4 ,
+            "W":4 ,
+            "X":8 ,
+            "Y":4 ,
+            "Z":10 }
 
 
     # tile = pyg.image.load(os.path.join('tiles/F.png'))

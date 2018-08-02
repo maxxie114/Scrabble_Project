@@ -9,3 +9,7 @@ class board:
 
     def __init__(self):
         pass
+
+
+    def setSize(self,sizeX,sizeY):
+        return pyg.transform.scale(board.board, (sizeX, sizeY))

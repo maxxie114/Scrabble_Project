@@ -26,8 +26,8 @@ class Main:
 	green_color = (0, 255, 0)
 	red_color = (255, 0, 0)
 
-	pyg.draw.rect(screen, blue_color, (0, 600, 600, 100), 5)
-	pyg.draw.rect(screen, green_color, (600, 0, 200, 600), 5)
+	pyg.draw.rect(self.screen, blue_color, (0, 600, 600, 100), 5)
+	pyg.draw.rect(self.screen, green_color, (600, 0, 200, 600), 5)
 	pyg.draw.rect(self.screen, red_color, (20, 610, 50, 50), 2)
 	pyg.draw.rect(self.screen, red_color, (80, 610, 50, 50), 2)
 	pyg.draw.rect(self.screen, red_color, (140, 610, 50, 50), 2)

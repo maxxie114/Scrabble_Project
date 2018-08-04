@@ -1,5 +1,8 @@
 import os
 import random
+import numpy as np
+from datascience import * 
+
 class Tile:
 
 
@@ -36,8 +39,6 @@ tileList = {"A":'tiles/A.png',
             "Y":'tiles/Y.png',
             "Z":'tiles/Z.png'}
 
-blank_tile = Tile('blank', 0, 'blank_image', 'None')
-
 A_tile1 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile2 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile3 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
@@ -45,4 +46,10 @@ B_tile = Tile('B', 2, pyg.transform.scale(pyg.image.load(os.path.join(tileList['
 C_tile = Tile('C', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['C'])), (30, 30)), 'None')
 
 
-tileBank = [A_tile1, A_tile2, A_tile3, B_tile, C_tile]
+allTiles = [A_tile1, A_tile2, A_tile3, B_tile, C_tile]
+tilesTable = Table().with_column('Tiles', allTiles)
+tileBank = tilesTable.sample(with_replacement = False).column(0)
+
+def selectTile(player, number_of_tiles):
+    player.tiles = np.append(player.tiles, tileBank[0:number_of_tiles])
+    tileBank = tileBank[number_of_tiles:]

@@ -157,11 +157,12 @@ allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_til
             S_tile1, S_tile2, S_tile3, S_tile4, T_tile1, T_tile2, T_tile3, T_tile4, T_tile5, T_tile6, 
             U_tile1, U_tile2, U_tile3, U_tile4, V_tile1, W_tile1, X_tile1, Y_tile1, Y_tile2, Z_tile1]
 tileBank = random.sample(allTiles, len(allTiles))
-print(tileBank)
 
 def selectTile(player, number_of_tiles):
+    global tileBank
     player.tiles = np.append(player.tiles, tileBank[0:number_of_tiles])
     tileBank = tileBank[number_of_tiles:]
+    return tileBank
 
 class Main:
 

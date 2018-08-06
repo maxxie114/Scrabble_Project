@@ -17,24 +17,18 @@ class Main:
 
 	# Coordinates
 	# Middle: (285, 285)
-	# Column A: (43)
-	# Column O: (527)
-	# Row 1: (33)
-	# Row 15: (538)
+	# Columns A-O: (43, 77, 112, 147, 181, 216, 250, 285, 319, 354, 388, 424, 458, 493, 528)
+	# Rows 1-15: (33, 69, 105, 141, 177, 213, 249, 285, 321, 357, 393, 429, 465, 501, 538
+
 
 	blue_color = (0, 0, 255)
 	green_color = (0, 255, 0)
 	red_color = (255, 0, 0)
 
-	pyg.draw.rect(self.screen, blue_color, (0, 600, 600, 100), 5)
-	pyg.draw.rect(self.screen, green_color, (600, 0, 200, 600), 5)
-	pyg.draw.rect(self.screen, red_color, (20, 610, 50, 50), 2)
-	pyg.draw.rect(self.screen, red_color, (80, 610, 50, 50), 2)
-	pyg.draw.rect(self.screen, red_color, (140, 610, 50, 50), 2)
-	pyg.draw.rect(self.screen, red_color, (200, 610, 50, 50), 2)
-	pyg.draw.rect(self.screen, red_color, (260, 610, 50, 50), 2)
-	pyg.draw.rect(self.screen, red_color, (320, 610, 50, 50), 2)
-	pyg.draw.rect(self.screen, red_color, (380, 610, 50, 50), 2)
+	pyg.draw.rect(screen, blue_color, (0, 600, 600, 100), 5)
+	pyg.draw.rect(screen, green_color, (600, 0, 200, 600), 5)
+	for i in range(7):
+		pyg.draw.rect(screen, red_color, (20 + 60 * i, 625, 50, 50), 2)
 
 	# update the screen to make the changes visible (fullscreen update)
 	pyg.display.flip()

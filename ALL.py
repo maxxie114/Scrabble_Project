@@ -1,18 +1,13 @@
 import pygame as pyg
 import os
 import random
-
 # Create class Player
-
-
-
 class Player:
 
     def __init__(self, name):
         self.name = name
         self.tiles = []
         self.score = 0
-
 # Create 2 to 4 player instances
 Player1 = Player('Player 1')
 Player2 = Player('Player 2')
@@ -20,17 +15,14 @@ Player2 = Player('Player 2')
 # Create class Tile
 class Tile:
 
-
+    
     def __init__(self, name, score, image, modifier):
-
+        
         self.name = name
         self.score = score
         self.image = image
         self.modifier = modifier
-
 # Create a dictionary to store all the images files
-
-
 tileList = {"A":'tiles/A.png',
             "B":'tiles/B.png',
             "C":'tiles/C.png',
@@ -57,7 +49,6 @@ tileList = {"A":'tiles/A.png',
             "X":'tiles/X.png',
             "Y":'tiles/Y.png',
             "Z":'tiles/Z.png'}
-
 # Create all the tile instances, there is a total of 95 instances
 # A
 A_tile1 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
@@ -194,80 +185,43 @@ allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_til
             P_tile1, P_tile2, Q_tile1, R_tile1, R_tile2, R_tile3, R_tile4, R_tile5, R_tile6, 
             S_tile1, S_tile2, S_tile3, S_tile4, T_tile1, T_tile2, T_tile3, T_tile4, T_tile5, T_tile6, 
             U_tile1, U_tile2, U_tile3, U_tile4, V_tile1, W_tile1, X_tile1, Y_tile1, Y_tile2, Z_tile1]
-
 # Use random to randomly select tiles
 tileBank = random.sample(allTiles, len(allTiles))
 
-def selectTile(player, number_of_tiles):
-    """uses numpy to randomly select tiles and return a tileBack numpy array"""
+def selectTile(player):
+    player.tiles.append(tileBank.pop())
+    return player.tiles
 
-tileBank = random.sample(allTiles, len(allTiles))
+for i in range(7):
+    selectTile(Player1)
+    selectTile(Player2)
 
-def selectTile(player, number_of_tiles):
+print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name) + ', ' + str(Player1.tiles[2].name) + ', ' + (Player1.tiles[3].name) + ', ' + (Player1.tiles[4].name) + ', ' + (Player1.tiles[5].name) + ', ' + (Player1.tiles[6].name))
+print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name) + ', ' + str(Player2.tiles[2].name) + ', ' + (Player2.tiles[3].name) + ', ' + (Player2.tiles[4].name) + ', ' + (Player2.tiles[5].name) + ', ' + (Player2.tiles[6].name))
 
-    global tileBank
-    player.tiles = np.append(player.tiles, tileBank[0:number_of_tiles])
-    tileBank = tileBank[number_of_tiles:]
-    return tileBank
+#class Main:
 
+# def __init__(self, screen):
+#     self.screen = screen
 
-# Create class Main
-class Main:
+def main():
+    pyg.init()
 
-    # Create a 15 * 15 grid
-    board_list =   [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,A_tile1.image,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1.image,0,0],
-                    [0,0,0,0,0,0,A_tile1.image,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1.image,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,A_tile1.image,0,0,0,0,0,0,0,0]]
-
-    def __init__(self, screen):
-        self.screen = screen
-    
-    def main():
-        pyg.init()
-
-    # Create all necessary colors
-    blue_color = (0, 0, 255)
-    green_color = (0, 255, 0)
-    red_color = (255, 0, 0)
-    #Display screen
+    # Display screen
     screen = pyg.display.set_mode((800, 700))
     screen.fill((255,255,255))
     scrabble_board = pyg.transform.scale(pyg.image.load(os.path.join('scrabble_board_800px.png')), (600, 600))
     screen.blit(scrabble_board, (0, 0))
 
-    # Draw the grid
-    for i in range(15):
-        for j in range(15):
-            # tiles_On_Board = pyg.transform.scale(pyg.image.load(os.path.join(tileList['F']))
-            # screen.blit(A_tile1.image, (40 + j*35, 43 + i*35))
-            if board_list[i][j] != 0:
-                screen.blit(board_list[i][j], (40 + j*35, 41 + i*35))
-    
-    # screen.blit(A_tile1.image, (528, 537))
-
-
-
-    # Coordinates
-    # Middle: (285, 285)
-    # Columns A-O: (43, 77, 112, 147, 181, 216, 250, 285, 319, 354, 388, 424, 458, 493, 528)
-    # Rows 1-15: (33, 69, 105, 141, 177, 213, 249, 285, 321, 357, 393, 429, 465, 501, 538
-
+    # Draw boxes
+    blue_color = (0, 0, 255)
+    green_color = (0, 255, 0)
+    red_color = (255, 0, 0)
     pyg.draw.rect(screen, blue_color, (0, 600, 600, 100), 5)
     pyg.draw.rect(screen, green_color, (600, 0, 200, 600), 5)
     for i in range(7):
         pyg.draw.rect(screen, red_color, (20 + 60 * i, 625, 50, 50), 2)
+
 
     # Place tiles in squares
 
@@ -277,70 +231,69 @@ class Main:
 
     showTiles(Player1)
 
+    screen.blit(Player1.tiles[0].image, (43, 33))
+    screen.blit(Player1.tiles[1].image, (43, 69))
+    screen.blit(Player1.tiles[2].image, (43, 105))
 
-    # update the screen to make the changes visible (fullscreen update)
+    # Create a 15 * 15 grid
+    board_list =   [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,A_tile1.score,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1.score,0,0],
+                    [0,0,0,0,0,0,A_tile1.score,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1.score,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,A_tile1.score,0,0,0,0,0,0,0,0]]
+
+    # Calculate score
+    scoreCollection = []
+    for i in range(15):
+        for j in range(15):
+            if board_list[i][j] != 0:
+                scoreCollection.append(board_list[i][j])
+    Score = sum(scoreCollection)
+    print('Score is: ' + str(Score))
+
+
+
+
+    # Draw the grid
+ #   for i in range(15):
+ #       for j in range(15):
+ #           # tiles_On_Board = pyg.transform.scale(pyg.image.load(os.path.join(tileList['F']))
+ #           # screen.blit(A_tile1.image, (40 + j*35, 43 + i*35))
+ #           if board_list[i][j] != 0:
+ #               screen.blit(board_list[i][j], (40 + j * 35, 41 + i * 35))
+
+    # Update the screen to make the changes visible
     pyg.display.flip()
-    # define a variable to control the main loop
+
+    print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name))
+    print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name))
+
+    print(Player1.tiles[:])
+    print(Player2.tiles[:])
+
+    # Coordinates
+	# Middle: (285, 285)
+	# Columns A-O: (43, 77, 112, 147, 181, 216, 250, 285, 319, 354, 388, 424, 458, 493, 528)
+	# Rows 1-15: (33, 69, 105, 141, 177, 213, 249, 285, 321, 357, 393, 429, 465, 501, 538)
+
+
+	# define a variable to control the main loop
     running = True
 
     while running:
-        for event in pyg.event.get():
-            if event.type == pyg.QUIT:
-                running = False
-# Run the Main method for pygame
-if __name__=="__main__":
-    Main.main()
-
-class Main:
-
-	def __init__(self, screen):
-		self.screen = screen
-
-	def main():
-		pyg.init()
-
-	#Display screen
-	screen = pyg.display.set_mode((800, 700))
-	screen.fill((255,255,255))
-	scrabble_board = pyg.transform.scale(pyg.image.load(os.path.join('scrabble_board_800px.png')), (600, 600))
-	screen.blit(scrabble_board, (0, 0))
-
-	screen.blit(A_tile1.image, (528, 537))
-
-	# Calculate score
-	scoreCollection = []
-	for i in range(15):
-    		for j in range(15):
-        		if board_list[i][j] != 0:
-            			scoreCollection.append(board_list[i][j].score)
-	Score = sum(scoreCollection)
-
-	# Coordinates
-	# Middle: (285, 285)
-	# Columns A-O: (43, 77, 112, 147, 181, 216, 250, 285, 319, 354, 388, 424, 458, 493, 528)
-	# Rows 1-15: (33, 69, 105, 141, 177, 213, 249, 285, 321, 357, 393, 429, 465, 501, 538
-
-
-	blue_color = (0, 0, 255)
-	green_color = (0, 255, 0)
-	red_color = (255, 0, 0)
-
-	pyg.draw.rect(screen, blue_color, (0, 600, 600, 100), 5)
-	pyg.draw.rect(screen, green_color, (600, 0, 200, 600), 5)
-	for i in range(7):
-		pyg.draw.rect(screen, red_color, (20 + 60 * i, 625, 50, 50), 2)
-
-
-	# update the screen to make the changes visible (fullscreen update)
-	pyg.display.flip()
-	# define a variable to control the main loop
-	running = True
-
-	while running:
-		for event in pyg.event.get():
-			if event.type == pyg.QUIT:
-				running = False
+	    for event in pyg.event.get():
+		    if event.type == pyg.QUIT:
+			    running = False
 
 if __name__=="__main__":
     main()
-

@@ -312,7 +312,7 @@ class Main:
 	for i in range(15):
     		for j in range(15):
         		if board_list[i][j] != 0:
-            			scoreCollection.append(board_list[i][j])
+            			scoreCollection.append(board_list[i][j].score)
 	Score = sum(scoreCollection)
 
 	# Coordinates

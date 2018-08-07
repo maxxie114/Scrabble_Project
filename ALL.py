@@ -69,9 +69,7 @@ tileList = {"A":'tiles/A.png',
             "Z":'tiles/Z.png'}
 
 # Create all the tile instances, there is a total of 95 instances
-
-
-
+# A
 A_tile1 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile2 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile3 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
@@ -81,19 +79,18 @@ A_tile6 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 A_tile7 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile8 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile9 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
-
+# B
 B_tile1 = Tile('B', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['B'])), (30, 30)), 'None')
 B_tile2 = Tile('B', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['B'])), (30, 30)), 'None')
-
-B_tile1 = Tile('B', 2, pyg.transform.scale(pyg.image.load(os.path.join(tileList['B'])), (30, 30)), 'None')
-B_tile2 = Tile('B', 2, pyg.transform.scale(pyg.image.load(os.path.join(tileList['B'])), (30, 30)), 'None')
-
+# C
 C_tile1 = Tile('C', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['C'])), (30, 30)), 'None')
 C_tile2 = Tile('C', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['C'])), (30, 30)), 'None')
+# D
 D_tile1 = Tile('D', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['D'])), (30, 30)), 'None')
 D_tile2 = Tile('D', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['D'])), (30, 30)), 'None')
 D_tile3 = Tile('D', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['D'])), (30, 30)), 'None')
 D_tile4 = Tile('D', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['D'])), (30, 30)), 'None')
+# E
 E_tile1 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 E_tile2 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 E_tile3 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
@@ -106,23 +103,17 @@ E_tile9 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 E_tile10 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 E_tile11 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 E_tile12 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
-
+# F
 F_tile1 = Tile('F', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['F'])), (30, 30)), 'None')
 F_tile2 = Tile('F', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['F'])), (30, 30)), 'None')
+# G
 G_tile1 = Tile('G', 2, pyg.transform.scale(pyg.image.load(os.path.join(tileList['G'])), (30, 30)), 'None')
 G_tile2 = Tile('G', 2, pyg.transform.scale(pyg.image.load(os.path.join(tileList['G'])), (30, 30)), 'None')
 G_tile3 = Tile('G', 2, pyg.transform.scale(pyg.image.load(os.path.join(tileList['G'])), (30, 30)), 'None')
+# H
 H_tile1 = Tile('H', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['H'])), (30, 30)), 'None')
 H_tile2 = Tile('H', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['H'])), (30, 30)), 'None')
-
-F_tile1 = Tile('F', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['F'])), (30, 30)), 'None')
-F_tile2 = Tile('F', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['F'])), (30, 30)), 'None')
-G_tile1 = Tile('G', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['G'])), (30, 30)), 'None')
-G_tile2 = Tile('G', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['G'])), (30, 30)), 'None')
-G_tile3 = Tile('G', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['G'])), (30, 30)), 'None')
-H_tile1 = Tile('H', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['H'])), (30, 30)), 'None')
-H_tile2 = Tile('H', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['H'])), (30, 30)), 'None')
-
+# I
 I_tile1 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['I'])), (30, 30)), 'None')
 I_tile2 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['I'])), (30, 30)), 'None')
 I_tile3 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['I'])), (30, 30)), 'None')
@@ -132,30 +123,26 @@ I_tile6 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 I_tile7 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['I'])), (30, 30)), 'None')
 I_tile8 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['I'])), (30, 30)), 'None')
 I_tile9 = Tile('I', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['I'])), (30, 30)), 'None')
-
+# J
 J_tile1 = Tile('J', 8, pyg.transform.scale(pyg.image.load(os.path.join(tileList['J'])), (30, 30)), 'None')
+# K
 K_tile1 = Tile('K', 5, pyg.transform.scale(pyg.image.load(os.path.join(tileList['K'])), (30, 30)), 'None')
-
-J_tile1 = Tile('J', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['J'])), (30, 30)), 'None')
-K_tile1 = Tile('K', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['K'])), (30, 30)), 'None')
-
+# L
 L_tile1 = Tile('L', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['L'])), (30, 30)), 'None')
 L_tile2 = Tile('L', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['L'])), (30, 30)), 'None')
 L_tile3 = Tile('L', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['L'])), (30, 30)), 'None')
 L_tile4 = Tile('L', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['L'])), (30, 30)), 'None')
-
+# M
 M_tile1 = Tile('M', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['M'])), (30, 30)), 'None')
 M_tile2 = Tile('M', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['M'])), (30, 30)), 'None')
-
-M_tile1 = Tile('M', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['M'])), (30, 30)), 'None')
-M_tile2 = Tile('M', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['M'])), (30, 30)), 'None')
-
+# N
 N_tile1 = Tile('N', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['N'])), (30, 30)), 'None')
 N_tile2 = Tile('N', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['N'])), (30, 30)), 'None')
 N_tile3 = Tile('N', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['N'])), (30, 30)), 'None')
 N_tile4 = Tile('N', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['N'])), (30, 30)), 'None')
 N_tile5 = Tile('N', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['N'])), (30, 30)), 'None')
 N_tile6 = Tile('N', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['N'])), (30, 30)), 'None')
+# O
 O_tile1 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['O'])), (30, 30)), 'None')
 O_tile2 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['O'])), (30, 30)), 'None')
 O_tile3 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['O'])), (30, 30)), 'None')
@@ -164,53 +151,48 @@ O_tile5 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 O_tile6 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['O'])), (30, 30)), 'None')
 O_tile7 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['O'])), (30, 30)), 'None')
 O_tile8 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['O'])), (30, 30)), 'None')
-
+# P
 P_tile1 = Tile('P', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['P'])), (30, 30)), 'None')
 P_tile2 = Tile('P', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['P'])), (30, 30)), 'None')
+# Q
 Q_tile1 = Tile('Q', 10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Q'])), (30, 30)), 'None')
-
-P_tile1 = Tile('P', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['P'])), (30, 30)), 'None')
-P_tile2 = Tile('P', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['P'])), (30, 30)), 'None')
-Q_tile1 = Tile('Q', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Q'])), (30, 30)), 'None')
-
+# R
 R_tile1 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
 R_tile2 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
 R_tile3 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
 R_tile4 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
 R_tile5 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
 R_tile6 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
+# S
 S_tile1 = Tile('S', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['S'])), (30, 30)), 'None')
 S_tile2 = Tile('S', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['S'])), (30, 30)), 'None')
 S_tile3 = Tile('S', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['S'])), (30, 30)), 'None')
 S_tile4 = Tile('S', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['S'])), (30, 30)), 'None')
+# T
 T_tile1 = Tile('T', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['T'])), (30, 30)), 'None')
 T_tile2 = Tile('T', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['T'])), (30, 30)), 'None')
 T_tile3 = Tile('T', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['T'])), (30, 30)), 'None')
 T_tile4 = Tile('T', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['T'])), (30, 30)), 'None')
 T_tile5 = Tile('T', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['T'])), (30, 30)), 'None')
 T_tile6 = Tile('T', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['T'])), (30, 30)), 'None')
+# U
 U_tile1 = Tile('U', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['U'])), (30, 30)), 'None')
 U_tile2 = Tile('U', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['U'])), (30, 30)), 'None')
 U_tile3 = Tile('U', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['U'])), (30, 30)), 'None')
 U_tile4 = Tile('U', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['U'])), (30, 30)), 'None')
-
+# V
 V_tile1 = Tile('V', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['V'])), (30, 30)), 'None')
+# W
 W_tile1 = Tile('W', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['W'])), (30, 30)), 'None')
+# X
 X_tile1 = Tile('X', 8, pyg.transform.scale(pyg.image.load(os.path.join(tileList['X'])), (30, 30)), 'None')
+# Y
 Y_tile1 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
 Y_tile2 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
+# Z
 Z_tile1 = Tile('Z', 10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Z'])), (30, 30)), 'None')
 
 # Put them all into a list
-
-V_tile1 = Tile('V', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['V'])), (30, 30)), 'None')
-W_tile1 = Tile('W', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['W'])), (30, 30)), 'None')
-X_tile1 = Tile('X', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['X'])), (30, 30)), 'None')
-Y_tile1 = Tile('Y', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
-Y_tile2 = Tile('Y', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
-Z_tile1 = Tile('Z', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Z'])), (30, 30)), 'None')
-
-
 allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_tile8, A_tile9, 
             B_tile1, B_tile2, C_tile1, C_tile2, D_tile1, D_tile2, D_tile3, D_tile4, 
             E_tile1, E_tile2, E_tile3, E_tile4, E_tile5, E_tile6, E_tile7, E_tile8, E_tile9, E_tile10, E_tile11, E_tile12, 

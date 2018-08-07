@@ -307,6 +307,13 @@ class Main:
 
 	screen.blit(A_tile1.image, (528, 537))
 
+	# Calculate score
+	scoreCollection = []
+	for i in range(15):
+    		for j in range(15):
+        		if board_list[i][j] != 0:
+            			scoreCollection.append(board_list[i][j])
+	Score = sum(scoreCollection)
 
 	# Coordinates
 	# Middle: (285, 285)

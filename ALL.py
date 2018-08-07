@@ -20,16 +20,6 @@ Player2 = Player('Player 2')
 # Create class Tile
 class Tile:
 
-    
-    def __init__(self, name, score, image, modifier):
-        
-
-
-Player1 = Player('Player 1')
-Player2 = Player('Player 2')
-
-class Tile:
-
 
     def __init__(self, name, score, image, modifier):
 

@@ -20,16 +20,6 @@ Player2 = Player('Player 2')
 # Create class Tile
 class Tile:
 
-    
-    def __init__(self, name, score, image, modifier):
-        
-
-
-Player1 = Player('Player 1')
-Player2 = Player('Player 2')
-
-class Tile:
-
 
     def __init__(self, name, score, image, modifier):
 
@@ -279,6 +269,14 @@ class Main:
     for i in range(7):
         pyg.draw.rect(screen, red_color, (20 + 60 * i, 625, 50, 50), 2)
 
+    # Place tiles in squares
+
+    def showTiles(player):
+        for i in range(7):
+            screen.blit(player.tiles[i].image, (30 + 60*i, 635))
+
+    showTiles(Player1)
+
 
     # update the screen to make the changes visible (fullscreen update)
     pyg.display.flip()
@@ -309,6 +307,13 @@ class Main:
 
 	screen.blit(A_tile1.image, (528, 537))
 
+	# Calculate score
+	scoreCollection = []
+	for i in range(15):
+    		for j in range(15):
+        		if board_list[i][j] != 0:
+            			scoreCollection.append(board_list[i][j].score)
+	Score = sum(scoreCollection)
 
 	# Coordinates
 	# Middle: (285, 285)

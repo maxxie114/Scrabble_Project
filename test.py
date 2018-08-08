@@ -1,17 +1,24 @@
-board_list =       [[0,0,0,0,'e','r','t',0,0,0,0,0,0,0,0],
-                    [0,0,'p','o','o',0,0,0,0,0,0,0,0,0,0],
-                    ['x',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+class Tile:
+
+    def __init__(self,name):
+        self.name = name
+
+A_tile1 = Tile('A')
+
+board_list =       [[0,0,0,0,A_tile1,A_tile1,A_tile1,0,0,0,0,0,0,0,0],
+                    [0,0,A_tile1,A_tile1,A_tile1,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['r',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['a',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['b',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['c',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['w',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['d',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    ['e',0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [A_tile1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                     [0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
 # summation = []
@@ -23,7 +30,7 @@ def checkColumn(column):
     one_word = ''
     for i in range(15):
         if board_list[i][column] != 0:
-            one_word += board_list[i][column]
+            one_word += board_list[i][column].name
         else:
             words.append(one_word)
             one_word = ''
@@ -39,7 +46,7 @@ def checkRow(row):
     one_word = ''
     for i in range(15):
         if board_list[row][i] != 0:
-            one_word += board_list[row][i]
+            one_word += board_list[row][i].name
         else:
             words.append(one_word)
             one_word = ''
@@ -56,7 +63,7 @@ def getWords(boardSize):
     summation = [x for x in summation if len(x) > 0]
     return summation
 
-getWords(15)
-
+a = getWords(15)
+print(a)
 # print(summation)
 #words

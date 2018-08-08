@@ -347,14 +347,14 @@ def checkRow(row):
     return words
 
 def checkDict(word):
-	'''Checks if word in dictionary'''
+    '''Checks if word in dictionary'''
     if word in open('dict.txt').read().split():
         return True
     else:
         return False
 
 def listAllTrueWords():
-	'''Returns a list of all of the true words on the board'''
+    '''Returns a list of all of the true words on the board'''
     summation = []
     for i in range(15):
         summation.extend(checkRow(i))
@@ -363,7 +363,7 @@ def listAllTrueWords():
     return [i for i in summation if checkDict(i)]
 
 def totalBoardScore():
-	'''Returns total score of all true words on the board'''
+    '''Returns total score of all true words on the board'''
     words = ''.join(listAllTrueWords())
     score = 0
     for i in range(len(words)):
@@ -373,7 +373,7 @@ def totalBoardScore():
 old_score = 0
 
 def modifyScore(player):
-	'''Modifies player score, valid words only, invalid=0 points'''
+    '''Modifies player score, valid words only, invalid=0 points'''
     new_score = totalBoardScore()
     player.score += new_score - old_score
     old_score = new_score

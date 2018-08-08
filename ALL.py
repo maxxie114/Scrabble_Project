@@ -292,8 +292,8 @@ def main():
     # Update the screen to make the changes visible
     pyg.display.flip()
 
-    print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name))  # Test code
-    print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name))  # Test code
+    # print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name))  # Test code
+    # print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name))  # Test code
 
     # print(Player1.tiles[:]) # Test code
     # print(Player2.tiles[:]) # Test code

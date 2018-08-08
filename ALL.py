@@ -1,27 +1,8 @@
 import pygame as pyg
 import os
 import random
-# Create class Player
-class Player:
 
-    def __init__(self, name):
-        self.name = name
-        self.tiles = []
-        self.score = 0
-# Create 2 to 4 player instances
-Player1 = Player('Player 1')
-Player2 = Player('Player 2')
-
-# Create class Tile
-class Tile:
-
-    
-    def __init__(self, name, score, image, modifier):
-        
-        self.name = name
-        self.score = score
-        self.image = image
-        self.modifier = modifier
+# Declare all variables
 # Create a dictionary to store all the images files
 tileList = {"A":'tiles/A.png',
             "B":'tiles/B.png',
@@ -49,7 +30,40 @@ tileList = {"A":'tiles/A.png',
             "X":'tiles/X.png',
             "Y":'tiles/Y.png',
             "Z":'tiles/Z.png'}
-# Create all the tile instances, there is a total of 95 instances
+
+blue_color = (0, 0, 255)
+green_color = (0, 255, 0)
+red_color = (255, 0, 0)
+orange_color = (255, 128, 0)
+black_color = (0, 0, 0)
+white_color = (255, 255, 255)
+
+
+
+# Create classes
+# Create class Player
+class Player:
+
+    def __init__(self, name):
+        self.name = name
+        self.tiles = []
+        self.score = 0
+# Create 2 to 4 player instances
+Player1 = Player('Player 1')
+Player2 = Player('Player 2')
+
+# Create class Tile
+class Tile:
+
+    
+    def __init__(self, name, score, image, modifier):
+        self.name = name
+        self.score = score
+        self.image = image
+        self.modifier = modifier
+
+
+# Create all the Tile instances, there is a total of 95 instances
 # A
 A_tile1 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile2 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
@@ -81,9 +95,9 @@ E_tile6 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 E_tile7 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 E_tile8 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 E_tile9 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
-E_tile10 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
-E_tile11 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
-E_tile12 = Tile('E', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
+E_tile10 = Tile('E',1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
+E_tile11 = Tile('E',1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
+E_tile12 = Tile('E',1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['E'])), (30, 30)), 'None')
 # F
 F_tile1 = Tile('F', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['F'])), (30, 30)), 'None')
 F_tile2 = Tile('F', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['F'])), (30, 30)), 'None')
@@ -136,7 +150,7 @@ O_tile8 = Tile('O', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 P_tile1 = Tile('P', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['P'])), (30, 30)), 'None')
 P_tile2 = Tile('P', 3, pyg.transform.scale(pyg.image.load(os.path.join(tileList['P'])), (30, 30)), 'None')
 # Q
-Q_tile1 = Tile('Q', 10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Q'])), (30, 30)), 'None')
+Q_tile1 = Tile('Q',10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Q'])), (30, 30)), 'None')
 # R
 R_tile1 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
 R_tile2 = Tile('R', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['R'])), (30, 30)), 'None')
@@ -171,7 +185,7 @@ X_tile1 = Tile('X', 8, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 Y_tile1 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
 Y_tile2 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
 # Z
-Z_tile1 = Tile('Z', 10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Z'])), (30, 30)), 'None')
+Z_tile1 = Tile('Z',10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Z'])), (30, 30)), 'None')
 
 # Put them all into a list
 allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_tile8, A_tile9, 
@@ -185,10 +199,29 @@ allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_til
             P_tile1, P_tile2, Q_tile1, R_tile1, R_tile2, R_tile3, R_tile4, R_tile5, R_tile6, 
             S_tile1, S_tile2, S_tile3, S_tile4, T_tile1, T_tile2, T_tile3, T_tile4, T_tile5, T_tile6, 
             U_tile1, U_tile2, U_tile3, U_tile4, V_tile1, W_tile1, X_tile1, Y_tile1, Y_tile2, Z_tile1]
+
+# Create a 15 * 15 grid
+board_list =   [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,A_tile1,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1,0,0],
+                [0,0,0,0,0,0,A_tile1,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,A_tile1,0,0,0,0,0,0,0,0]]
+
 # Use random to randomly select tiles
 tileBank = random.sample(allTiles, len(allTiles))
 
 def selectTile(player):
+    """Return a list of 7 tiles added together with a given player object"""
     player.tiles.append(tileBank.pop())
     return player.tiles
 
@@ -196,14 +229,18 @@ for i in range(7):
     selectTile(Player1)
     selectTile(Player2)
 
-print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name) + ', ' + str(Player1.tiles[2].name) + ', ' + (Player1.tiles[3].name) + ', ' + (Player1.tiles[4].name) + ', ' + (Player1.tiles[5].name) + ', ' + (Player1.tiles[6].name))
-print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name) + ', ' + str(Player2.tiles[2].name) + ', ' + (Player2.tiles[3].name) + ', ' + (Player2.tiles[4].name) + ', ' + (Player2.tiles[5].name) + ', ' + (Player2.tiles[6].name))
+print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name) + ', ' + str(Player1.tiles[2].name) + ', ' + (Player1.tiles[3].name) + ', ' 
++ (Player1.tiles[4].name) + ', ' + (Player1.tiles[5].name) + ', ' + (Player1.tiles[6].name)) # Test code
+
+print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name) + ', ' + str(Player2.tiles[2].name) + ', ' + (Player2.tiles[3].name) + ', '
+ + (Player2.tiles[4].name) + ', ' + (Player2.tiles[5].name) + ', ' + (Player2.tiles[6].name)) # Test code
 
 #class Main:
 
 # def __init__(self, screen):
 #     self.screen = screen
 
+# Pygame main function
 def main():
     pyg.init()
 
@@ -214,9 +251,6 @@ def main():
     screen.blit(scrabble_board, (0, 0))
 
     # Draw boxes
-    blue_color = (0, 0, 255)
-    green_color = (0, 255, 0)
-    red_color = (255, 0, 0)
     pyg.draw.rect(screen, blue_color, (0, 600, 600, 100), 5)
     pyg.draw.rect(screen, green_color, (600, 0, 200, 600), 5)
     for i in range(7):
@@ -231,33 +265,16 @@ def main():
 
     showTiles(Player1)
 
-    screen.blit(Player1.tiles[0].image, (43, 33))
-    screen.blit(Player1.tiles[1].image, (43, 69))
-    screen.blit(Player1.tiles[2].image, (43, 105))
-
-    # Create a 15 * 15 grid
-    board_list =   [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,A_tile1.score,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1.score,0,0],
-                    [0,0,0,0,0,0,A_tile1.score,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1.score,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,A_tile1.score,0,0,0,0,0,0,0,0]]
+    # screen.blit(Player1.tiles[0].image, (43, 33))  # Test code
+    # screen.blit(Player1.tiles[1].image, (43, 69))  # Test code
+    # screen.blit(Player1.tiles[2].image, (43, 105)) # Test code
 
     # Calculate score
     scoreCollection = []
     for i in range(15):
         for j in range(15):
             if board_list[i][j] != 0:
-                scoreCollection.append(board_list[i][j])
+                scoreCollection.append(board_list[i][j].score)
     Score = sum(scoreCollection)
     print('Score is: ' + str(Score))
 
@@ -265,35 +282,79 @@ def main():
 
 
     # Draw the grid
- #   for i in range(15):
- #       for j in range(15):
- #           # tiles_On_Board = pyg.transform.scale(pyg.image.load(os.path.join(tileList['F']))
- #           # screen.blit(A_tile1.image, (40 + j*35, 43 + i*35))
- #           if board_list[i][j] != 0:
- #               screen.blit(board_list[i][j], (40 + j * 35, 41 + i * 35))
+    for i in range(15):
+        for j in range(15):
+            # tiles_On_Board = pyg.transform.scale(pyg.image.load(os.path.join(tileList['F']))
+            # screen.blit(A_tile1.image, (40 + j*35, 43 + i*35))
+            if board_list[i][j] != 0:
+                screen.blit(board_list[i][j].image, (40 + j * 35, 41 + i * 35))
 
     # Update the screen to make the changes visible
     pyg.display.flip()
 
-    print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name))
-    print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name))
+    print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name))  # Test code
+    print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name))  # Test code
 
-    print(Player1.tiles[:])
-    print(Player2.tiles[:])
+    # print(Player1.tiles[:]) # Test code
+    # print(Player2.tiles[:]) # Test code
 
     # Coordinates
 	# Middle: (285, 285)
 	# Columns A-O: (43, 77, 112, 147, 181, 216, 250, 285, 319, 354, 388, 424, 458, 493, 528)
 	# Rows 1-15: (33, 69, 105, 141, 177, 213, 249, 285, 321, 357, 393, 429, 465, 501, 538)
 
-
 	# define a variable to control the main loop
     running = True
-
+    # Attention: These should be included in main()
     while running:
 	    for event in pyg.event.get():
 		    if event.type == pyg.QUIT:
 			    running = False
+
+
+# Create functions
+
+
+# Create functions for all calculations
+def checkColumn(column):
+    """Scan all words that is bigger than length 1 and return a list 
+        contains all those words"""
+    words = []
+    one_word = ''
+    for i in range(15):
+        if board_list[i][column] != 0:
+            one_word += board_list[i][column].name
+        else:
+            words.append(one_word)
+            one_word = ''
+    words.append(one_word)
+    words = [x for x in words if len(x) > 1]
+    return words
+
+
+def checkRow(row):
+    """Scan all words in a row that is bigger than length 1 and return a list 
+        contains all those words"""
+    words = []
+    one_word = ''
+    for i in range(15):
+        if board_list[row][i] != 0:
+            one_word += board_list[row][i].name
+        else:
+            words.append(one_word)
+            one_word = ''
+    words.append(one_word)
+    words = [x for x in words if len(x) > 1]
+
+    return words
+
+def getWords(boardSize):
+    summation = []
+    for i in range(boardSize):
+        summation.extend(checkRow(i))
+        summation.extend(checkColumn(i))
+    summation = [x for x in summation if len(x) > 0]
+    return summation
 
 if __name__=="__main__":
     main()

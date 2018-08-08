@@ -29,7 +29,8 @@ tileList = {"A":'tiles/A.png',
             "W":'tiles/W.png',
             "X":'tiles/X.png',
             "Y":'tiles/Y.png',
-            "Z":'tiles/Z.png'}
+            "Z":'tiles/Z.png',
+            "NA":'tiles/empty.png'}
 
 blue_color = (0, 0, 255)
 green_color = (0, 255, 0)
@@ -38,7 +39,7 @@ orange_color = (255, 128, 0)
 black_color = (0, 0, 0)
 white_color = (255, 255, 255)
 
-
+# tempTile = 0
 
 # Create classes
 # Create class Player
@@ -186,7 +187,8 @@ Y_tile1 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 Y_tile2 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Y'])), (30, 30)), 'None')
 # Z
 Z_tile1 = Tile('Z',10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Z'])), (30, 30)), 'None')
-
+# Empty
+empty = Tile('NA',0, pyg.transform.scale(pyg.image.load(os.path.join(tileList['NA'])), (30, 30)), 'None')
 # Put them all into a list
 allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_tile8, A_tile9, 
             B_tile1, B_tile2, C_tile1, C_tile2, D_tile1, D_tile2, D_tile3, D_tile4, 
@@ -206,23 +208,27 @@ board_list =   [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,A_tile1,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1,0,0],
-                [0,0,0,0,0,0,A_tile1,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,A_tile1,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,A_tile1,0,0,0,0,0,0,0,0]]
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
 # Use random to randomly select tiles
 tileBank = random.sample(allTiles, len(allTiles))
 
+# Use a global player instance, just to make it easier
+playerInstance = Player1
+
 def selectTile(player):
     """Return a list of 7 tiles added together with a given player object"""
     player.tiles.append(tileBank.pop())
+    # player.tiles = [U_tile1,U_tile1,U_tile1,U_tile1,U_tile1,U_tile1,empty] # test code
     return player.tiles
 
 for i in range(7):
@@ -241,9 +247,9 @@ print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles
 #     self.screen = screen
 
 # Create functions
-
-
 # Create functions for all calculations
+tempTile = 0
+
 def mouseCheck(mouse):
     """This function modify the board with a given mouse coordinate (x,y) 
         if the mouse coordinate is between (41,31) and (560,569), it will place a tile on the associated coord of the board
@@ -259,11 +265,25 @@ def mouseCheck(mouse):
     playerBarX2 = 428
     playerBarY1 = 626
     playerBarY2 = 675
+    global tempTile
     if mouse[0] >= boardX1 and mouse[0] <= boardX2 and mouse[1] >= boardY1 and mouse[1] <= boardY2:
-        print("board")
+        x = int(mouse[0] // 40)
+        y = int(mouse[1] // 40)
+        board_list[y][x] = tempTile                
+        # print(tempTile.name) # test code
+        # pyg.display.flip()
+        # print("board") # test code
     elif mouse[0] >= playerBarX1 and mouse[0] <= playerBarX2 and mouse[1] >= playerBarY1 and mouse[1] <= playerBarY2:
-        print("playerBar")
+        x = int(mouse[0] // 60)
+        y = int(mouse[1] // 60)
+        tempTile = playerInstance.tiles[x]
+        # print(tempTile.name) # test code
+        playerInstance.tiles[x] = empty
+        # pyg.display.update()
+        # print("playerBar") # test code
+        # pass
 
+ 
 
 def checkColumn(column):
     """Scan all words that is bigger than length 1 and return a list 
@@ -330,7 +350,7 @@ def main():
         for i in range(7):
             screen.blit(player.tiles[i].image, (30 + 60*i, 635))
 
-    showTiles(Player1)
+    showTiles(playerInstance)
 
     # screen.blit(Player1.tiles[0].image, (43, 33))  # Test code
     # screen.blit(Player1.tiles[1].image, (43, 69))  # Test code
@@ -349,12 +369,14 @@ def main():
 
 
     # Draw the grid
-    for i in range(15):
-        for j in range(15):
-            # tiles_On_Board = pyg.transform.scale(pyg.image.load(os.path.join(tileList['F']))
-            # screen.blit(A_tile1.image, (40 + j*35, 43 + i*35))
-            if board_list[i][j] != 0:
-                screen.blit(board_list[i][j].image, (40 + j * 35, 41 + i * 35))
+    def drawGrid():
+        for i in range(15):
+            for j in range(15):
+                # tiles_On_Board = pyg.transform.scale(pyg.image.load(os.path.join(tileList['F']))
+                # screen.blit(A_tile1.image, (40 + j*35, 43 + i*35))
+                if board_list[i][j] != 0:
+                    screen.blit(board_list[i][j].image, (40 + j * 35, 41 + i * 35))
+    drawGrid()
 
     # Update the screen to make the changes visible
     pyg.display.update()
@@ -387,14 +409,19 @@ def main():
                 # print(mouse) # test code
             elif event.type == pyg.MOUSEBUTTONDOWN and event.button == 1:
                 mouse = pyg.mouse.get_pos()
-                print(mouse)
+                print(mouse) # test code
                 mouseCheck(mouse)
+                print([i.name for i in playerInstance.tiles]) # test code
+                showTiles(playerInstance)
+                drawGrid()
+                pyg.display.update()
+                # print(board_list) # test code
                 # print(event.button) # test code
                 # print("action performed") # test code
             elif event.type == pyg.QUIT:
                 running = False
 
-
+# pyg.display.update()
 
 
 if __name__=="__main__":

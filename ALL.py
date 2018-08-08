@@ -316,25 +316,39 @@ def checkRow(row):
             one_word = ''
     words.append(one_word)
     words = [x for x in words if len(x) > 1]
-
     return words
 
-def getWords(boardSize):
+def checkDict(word):
+	'''Checks if word in dictionary'''
+    if word in open('dict.txt').read().split():
+        return True
+    else:
+        return False
+
+def listAllTrueWords():
+	'''Returns a list of all of the true words on the board'''
     summation = []
-    for i in range(boardSize):
+    for i in range(15):
         summation.extend(checkRow(i))
         summation.extend(checkColumn(i))
     summation = [x for x in summation if len(x) > 0]
-    return summation
+    return [i for i in summation if checkDict(i)]
 
-def checkWords():
-    checker = []
-    for i in range(len(getWords(15))):
-        if getWords(15)[i] in dict.txt:
-            checker.append(True)
-        else:
-            checker.append(False)
-    return all(checker)
+def totalBoardScore():
+	'''Returns total score of all true words on the board'''
+    words = ''.join(listAllTrueWords())
+    score = 0
+    for i in range(len(words)):
+        score += tileScore[words[i]]
+    return score
+
+old_score = 0
+
+def modifyScore(player):
+	'''Modifies player score, valid words only, invalid=0 points'''
+    new_score = totalBoardScore()
+    player.score += new_score - old_score
+    old_score = new_score
 
 # Pygame main function
 def main():

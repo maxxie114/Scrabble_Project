@@ -396,7 +396,15 @@ def main():
     for i in range(7):
         pyg.draw.rect(screen, red_color, (20 + 60 * i, 625, 50, 50), 2)
 
-
+    # Displaying Player scores and Tiles Remaining
+    basicfont = pyg.font.SysFont(None, 25)
+    p1_score_text = basicfont.render('Player 1 Score: ' + str(Player1.score), True, (0, 0, 0), (250, 250, 250))
+    p2_score_text = basicfont.render('Player 2 Score: ' + str(Player2.score), True, (0, 0, 0), (250, 250, 250))
+    tiles_remaining_text = basicfont.render('Tiles Left: ' + '0', True, (0, 0, 0), (250, 250, 250))
+    screen.blit(p1_score_text, (630, 610))
+    screen.blit(p2_score_text, (630, 640))
+    screen.blit(tiles_remaining_text, (630, 670))
+	
     # Place tiles in squares
 
     def showTiles(player):

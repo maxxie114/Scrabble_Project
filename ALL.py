@@ -30,7 +30,8 @@ tileList = {"A":'tiles/A.png',
             "X":'tiles/X.png',
             "Y":'tiles/Y.png',
             "Z":'tiles/Z.png',
-            "NA":'tiles/empty.png'}
+            "NA":'tiles/empty.png',
+            'white':'tiles/white.png'}
 
 blue_color = (0, 0, 255)
 green_color = (0, 255, 0)
@@ -64,7 +65,7 @@ class Tile:
         self.modifier = modifier
 
 
-# Create all the Tile instances, there is a total of 95 instances
+# Create all the Tile instances, there is a total of 96 instances
 # A
 A_tile1 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
 A_tile2 = Tile('A', 1, pyg.transform.scale(pyg.image.load(os.path.join(tileList['A'])), (30, 30)), 'None')
@@ -188,7 +189,8 @@ Y_tile2 = Tile('Y', 4, pyg.transform.scale(pyg.image.load(os.path.join(tileList[
 # Z
 Z_tile1 = Tile('Z',10, pyg.transform.scale(pyg.image.load(os.path.join(tileList['Z'])), (30, 30)), 'None')
 # Empty
-empty = Tile('NA',0, pyg.transform.scale(pyg.image.load(os.path.join(tileList['NA'])), (30, 30)), 'None')
+# empty = Tile('NA',0, pyg.transform.scale(pyg.image.load(os.path.join(tileList['NA'])), (30, 30)), 'None')
+white = Tile('NA',0, pyg.transform.scale(pyg.image.load(os.path.join(tileList['white'])), (30, 30)), 'None')
 # Put them all into a list
 allTiles = [A_tile1, A_tile2, A_tile3, A_tile4, A_tile5, A_tile6, A_tile7, A_tile8, A_tile9, 
             B_tile1, B_tile2, C_tile1, C_tile2, D_tile1, D_tile2, D_tile3, D_tile4, 
@@ -228,7 +230,7 @@ playerInstance = Player1
 def selectTile(player):
     """Return a list of 7 tiles added together with a given player object"""
     player.tiles.append(tileBank.pop())
-    # player.tiles = [U_tile1,U_tile1,U_tile1,U_tile1,U_tile1,U_tile1,empty] # test code
+    # player.tiles = [U_tile1,U_tile1,U_tile1,U_tile1,U_tile1,U_tile1,white] # test code
     return player.tiles
 
 for i in range(7):
@@ -278,7 +280,7 @@ def mouseCheck(mouse):
         y = int(mouse[1] // 60)
         tempTile = playerInstance.tiles[x]
         # print(tempTile.name) # test code
-        playerInstance.tiles[x] = empty
+        playerInstance.tiles[x] = white
         # pyg.display.update()
         # print("playerBar") # test code
         # pass
@@ -325,6 +327,14 @@ def getWords(boardSize):
     summation = [x for x in summation if len(x) > 0]
     return summation
 
+def checkWords():
+    checker = []
+    for i in range(len(getWords(15))):
+        if getWords(15)[i] in dict.txt:
+            checker.append(True)
+        else:
+            checker.append(False)
+    return all(checker)
 
 # Pygame main function
 def main():
@@ -409,7 +419,7 @@ def main():
                 # print(mouse) # test code
             elif event.type == pyg.MOUSEBUTTONDOWN and event.button == 1:
                 mouse = pyg.mouse.get_pos()
-                print(mouse) # test code
+                print(mouse) #e test code
                 mouseCheck(mouse)
                 print([i.name for i in playerInstance.tiles]) # test code
                 showTiles(playerInstance)

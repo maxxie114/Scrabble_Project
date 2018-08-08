@@ -240,13 +240,80 @@ print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles
 # def __init__(self, screen):
 #     self.screen = screen
 
+# Create functions
+
+
+# Create functions for all calculations
+def mouseCheck(mouse):
+    """This function modify the board with a given mouse coordinate (x,y) 
+        if the mouse coordinate is between (41,31) and (560,569), it will place a tile on the associated coord of the board
+        if the mouse coordinate is between (21,626) and (428,675), it will detect the associated tiles on the player bar, and store it in a variable, 
+        and delete it from the original player bar list
+    """
+    # declare variables
+    boardX1 = 41
+    boardY1 = 31
+    boardX2 = 560
+    boardY2 = 569
+    playerBarX1 = 21
+    playerBarX2 = 428
+    playerBarY1 = 626
+    playerBarY2 = 675
+    if mouse[0] >= boardX1 and mouse[0] <= boardX2 and mouse[1] >= boardY1 and mouse[1] <= boardY2:
+        print("board")
+    elif mouse[0] >= playerBarX1 and mouse[0] <= playerBarX2 and mouse[1] >= playerBarY1 and mouse[1] <= playerBarY2:
+        print("playerBar")
+
+
+def checkColumn(column):
+    """Scan all words that is bigger than length 1 and return a list 
+        contains all those words"""
+    words = []
+    one_word = ''
+    for i in range(15):
+        if board_list[i][column] != 0:
+            one_word += board_list[i][column].name
+        else:
+            words.append(one_word)
+            one_word = ''
+    words.append(one_word)
+    words = [x for x in words if len(x) > 1]
+    return words
+
+
+def checkRow(row):
+    """Scan all words in a row that is bigger than length 1 and return a list 
+        contains all those words"""
+    words = []
+    one_word = ''
+    for i in range(15):
+        if board_list[row][i] != 0:
+            one_word += board_list[row][i].name
+        else:
+            words.append(one_word)
+            one_word = ''
+    words.append(one_word)
+    words = [x for x in words if len(x) > 1]
+
+    return words
+
+def getWords(boardSize):
+    summation = []
+    for i in range(boardSize):
+        summation.extend(checkRow(i))
+        summation.extend(checkColumn(i))
+    summation = [x for x in summation if len(x) > 0]
+    return summation
+
+
 # Pygame main function
 def main():
+    # initialize pygame
     pyg.init()
-
-    # Display screen
     screen = pyg.display.set_mode((800, 700))
     screen.fill((255,255,255))
+    pyg.display.set_caption('Scrabble Multiplayer')
+    # Display screen
     scrabble_board = pyg.transform.scale(pyg.image.load(os.path.join('scrabble_board_800px.png')), (600, 600))
     screen.blit(scrabble_board, (0, 0))
 
@@ -290,7 +357,7 @@ def main():
                 screen.blit(board_list[i][j].image, (40 + j * 35, 41 + i * 35))
 
     # Update the screen to make the changes visible
-    pyg.display.flip()
+    pyg.display.update()
 
     # print('Player 1 tiles: ' + str(Player1.tiles[0].name) + ', ' + str(Player1.tiles[1].name))  # Test code
     # print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles[1].name))  # Test code
@@ -302,59 +369,33 @@ def main():
 	# Middle: (285, 285)
 	# Columns A-O: (43, 77, 112, 147, 181, 216, 250, 285, 319, 354, 388, 424, 458, 493, 528)
 	# Rows 1-15: (33, 69, 105, 141, 177, 213, 249, 285, 321, 357, 393, 429, 465, 501, 538)
+    # event.button:
+    #   1.left click
+    #   2.middle click
+    #   3.right click
+    #   4.scroll up
+    #   5.scroll down
 
 	# define a variable to control the main loop
     running = True
     # Attention: These should be included in main()
+    # Code to detect mouse click
     while running:
-	    for event in pyg.event.get():
-		    if event.type == pyg.QUIT:
-			    running = False
+        for event in pyg.event.get():
+            if event.type == pyg.MOUSEMOTION:
+                mouse = pyg.mouse.get_pos()
+                # print(mouse) # test code
+            elif event.type == pyg.MOUSEBUTTONDOWN and event.button == 1:
+                mouse = pyg.mouse.get_pos()
+                print(mouse)
+                mouseCheck(mouse)
+                # print(event.button) # test code
+                # print("action performed") # test code
+            elif event.type == pyg.QUIT:
+                running = False
 
 
-# Create functions
 
-
-# Create functions for all calculations
-def checkColumn(column):
-    """Scan all words that is bigger than length 1 and return a list 
-        contains all those words"""
-    words = []
-    one_word = ''
-    for i in range(15):
-        if board_list[i][column] != 0:
-            one_word += board_list[i][column].name
-        else:
-            words.append(one_word)
-            one_word = ''
-    words.append(one_word)
-    words = [x for x in words if len(x) > 1]
-    return words
-
-
-def checkRow(row):
-    """Scan all words in a row that is bigger than length 1 and return a list 
-        contains all those words"""
-    words = []
-    one_word = ''
-    for i in range(15):
-        if board_list[row][i] != 0:
-            one_word += board_list[row][i].name
-        else:
-            words.append(one_word)
-            one_word = ''
-    words.append(one_word)
-    words = [x for x in words if len(x) > 1]
-
-    return words
-
-def getWords(boardSize):
-    summation = []
-    for i in range(boardSize):
-        summation.extend(checkRow(i))
-        summation.extend(checkColumn(i))
-    summation = [x for x in summation if len(x) > 0]
-    return summation
 
 if __name__=="__main__":
     main()

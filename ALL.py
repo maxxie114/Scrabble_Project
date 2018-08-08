@@ -299,7 +299,8 @@ def mouseCheck(mouse):
     if mouse[0] >= boardX1 and mouse[0] <= boardX2 and mouse[1] >= boardY1 and mouse[1] <= boardY2:
         x = int(mouse[0] // 40)
         y = int(mouse[1] // 40)
-        board_list[y][x] = tempTile                
+        board_list[y][x] = tempTile
+        tempTile = 0                
         # print(tempTile.name) # test code
         # pyg.display.flip()
         # print("board") # test code

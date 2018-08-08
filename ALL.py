@@ -313,7 +313,9 @@ def mouseCheck(mouse):
         x = int(mouse[0] // 40)
         y = int(mouse[1] // 40)
         board_list[y][x] = tempTile
-        tempTile = 0
+
+        tempTile = 0                
+
         # print(tempTile.name) # test code
         # pyg.display.flip()
         # print("board") # test code

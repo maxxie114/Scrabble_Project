@@ -304,6 +304,10 @@ def mouseCheck(mouse):
     playerBarX2 = 428
     playerBarY1 = 626
     playerBarY2 = 675
+    buttonX1 = 447
+    buttonY1 = 624
+    buttonX2 = 578
+    buttonY2 = 677
     global tempTile
     if mouse[0] >= boardX1 and mouse[0] <= boardX2 and mouse[1] >= boardY1 and mouse[1] <= boardY2:
         x = int(mouse[0] // 40)
@@ -322,6 +326,18 @@ def mouseCheck(mouse):
         # pyg.display.update()
         # print("playerBar") # test code
         # pass
+    elif mouse[0] >= buttonX1 and mouse[0] <= buttonX2 and mouse[1] >= buttonY1 and mouse[1] <= buttonY2:
+        print("button clicked") # test code
+        donebuttonClicked()
+        print(playerInstance.name)
+
+def donebuttonClicked():
+    global tileBank, allTiles, playerInstance
+    # tileBank = []
+    tileBank = random.sample(allTiles, len(allTiles))
+    playerInstance.tiles = [i for i in playerInstance.tiles if i.name != 'NA']
+    selectTile(playerInstance)
+    # pyg.display.update()
 
 
 def checkColumn(column):
@@ -384,10 +400,13 @@ def totalBoardScore():
 
 
 old_score = 0
+new_score = 0
 
 
 def modifyScore(player):
     '''Modifies player score, valid words only, invalid=0 points'''
+    global old_score
+    global new_score
     new_score = totalBoardScore()
     player.score += new_score - old_score
     old_score = new_score

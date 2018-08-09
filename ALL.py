@@ -68,8 +68,8 @@ orange_color = (255, 128, 0)
 black_color = (0, 0, 0)
 white_color = (255, 255, 255)
 
-screen = 0
-basicfont = 0
+global screen
+global basicfont
 # tempTile = 0
 
 # Create classes
@@ -255,7 +255,7 @@ board_list = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 # Use random to randomly select tiles
-tileBank = random.sample(allTiles, len(allTiles))
+tileBank = random.sample(allTiles, 10) # len(allTiles))
 
 # Use a global player instance, just to make it easier
 playerInstance = Player1
@@ -337,12 +337,29 @@ def donebuttonClicked():
     # tileBank = []
     # tileBank = random.sample(allTiles, len(allTiles))
     playerInstance.tiles = [i for i in playerInstance.tiles if i.name != 'NA']
+    if len(tileBank) < 1:
+        winner = checkWin()
+        screen.blit(basicfont.render('Game Over! Winner: ' + winner + '!', True, (0, 0, 0), (250, 250, 250)), (630, 670))
     # selectTile(playerInstance)
     # pyg.display.update()
     modifyScore(playerInstance)
-    screen.blit(basicfont.render('Player 1 Score: ' + str(playerInstance.score), True, (0, 0, 0), (250, 250, 250)), (630, 610))
-    print(playerInstance.score) # test code
+    if playerInstance == Player1:
+        screen.blit(basicfont.render('Player 1 Score: ' + str(playerInstance.score), True, (0, 0, 0), (250, 250, 250)), (630, 610))
+        screen.blit(basicfont.render('Tiles Left: ' + str(len(tileBank)), True, (0, 0, 0), (250, 250, 250)), (630, 670))
+        playerInstance = Player2
+    else:
+        screen.blit(basicfont.render('Player 2 Score: ' + str(playerInstance.score), True, (0, 0, 0), (250, 250, 250)),(630, 640))
+        screen.blit(basicfont.render('Tiles Left: ' + str(len(tileBank)), True, (0, 0, 0), (250, 250, 250)), (630, 670))
+        playerInstance = Player1
+    # print(playerInstance.score) # test code
     # pyg.display.update()
+
+def checkWin():
+    """Analyze the scores of the players and check win, return player1 or player2 as a string"""
+    if player1.score < player2.score:
+        return "player 2"
+    else:
+        return "player 1"
 
 
 def checkColumn(column):
@@ -443,10 +460,10 @@ def main():
     button_text = basicfont.render('End Turn', True, (0, 0, 0), green_color)
     screen.blit(basicfont.render('Player 1 Score: ' + str(Player1.score), True, (0, 0, 0), (250, 250, 250)), (630, 610))
     screen.blit(basicfont.render('Player 2 Score: ' + str(Player2.score), True, (0, 0, 0), (250, 250, 250)),(630, 640))
-    tiles_remaining_text = basicfont.render('Tiles Left: ' + '0', True, (0, 0, 0), (250, 250, 250))
+    screen.blit(basicfont.render('Tiles Left: ' + str(len(tileBank)), True, (0, 0, 0), (250, 250, 250)), (630, 670))
+    # tiles_remaining_text = basicfont.render('Tiles Left: ' + '0', True, (0, 0, 0), (250, 250, 250))
     # screen.blit(p1_score_text, (630, 610))
     # screen.blit(p2_score_text, (630, 640))
-    screen.blit(tiles_remaining_text, (630, 670))
     screen.blit(button_text, (478, 645))
 
     # Place tiles in squares

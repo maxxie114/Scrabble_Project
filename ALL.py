@@ -255,7 +255,7 @@ board_list = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 # Use random to randomly select tiles
-tileBank = random.sample(allTiles, 10) # len(allTiles))
+tileBank = random.sample(allTiles, len(allTiles))
 
 # Use a global player instance, just to make it easier
 playerInstance = Player1

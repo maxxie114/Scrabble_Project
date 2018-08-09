@@ -279,10 +279,7 @@ print('Player 2 tiles: ' + str(Player2.tiles[0].name) + ', ' + str(Player2.tiles
     Player2.tiles[2].name) + ', ' + (Player2.tiles[3].name) + ', '
       + (Player2.tiles[4].name) + ', ' + (Player2.tiles[5].name) + ', ' + (Player2.tiles[6].name))  # Test code
 
-# class Main:
 
-# def __init__(self, screen):
-#     self.screen = screen
 
 # Create functions
 # Create functions for all calculations
@@ -325,20 +322,21 @@ def mouseCheck(mouse):
         tempTile = playerInstance.tiles[x]
         # print(tempTile.name) # test code
         playerInstance.tiles[x] = white
+        selectTile(playerInstance)
         # pyg.display.update()
         # print("playerBar") # test code
         # pass
     elif mouse[0] >= buttonX1 and mouse[0] <= buttonX2 and mouse[1] >= buttonY1 and mouse[1] <= buttonY2:
         print("button clicked") # test code
         donebuttonClicked()
-        print(playerInstance.name)
+        print(playerInstance.name) # test code
 
 def donebuttonClicked():
     global tileBank, allTiles, playerInstance
     # tileBank = []
-    tileBank = random.sample(allTiles, len(allTiles))
+    # tileBank = random.sample(allTiles, len(allTiles))
     playerInstance.tiles = [i for i in playerInstance.tiles if i.name != 'NA']
-    selectTile(playerInstance)
+    # selectTile(playerInstance)
     # pyg.display.update()
 
 

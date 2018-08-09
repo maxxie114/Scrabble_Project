@@ -1,5 +1,5 @@
 # Scrabble_Project
-This is a school project of scrabble that will be written in pygame.
+This is a school project of scrabble that is written in pygame.
 
 
 - Here is a link to check out our progress:

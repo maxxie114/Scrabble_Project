@@ -68,7 +68,8 @@ orange_color = (255, 128, 0)
 black_color = (0, 0, 0)
 white_color = (255, 255, 255)
 
-
+screen = 0
+basicfont = 0
 # tempTile = 0
 
 # Create classes
@@ -310,9 +311,7 @@ def mouseCheck(mouse):
         x = int(mouse[0] // 40)
         y = int(mouse[1] // 40)
         board_list[y][x] = tempTile
-
-        tempTile = 0                
-
+        tempTile = 0
         # print(tempTile.name) # test code
         # pyg.display.flip()
         # print("board") # test code
@@ -329,14 +328,20 @@ def mouseCheck(mouse):
     elif mouse[0] >= buttonX1 and mouse[0] <= buttonX2 and mouse[1] >= buttonY1 and mouse[1] <= buttonY2:
         print("button clicked") # test code
         donebuttonClicked()
-        print(playerInstance.name) # test code
+        modifyScore(playerInstance)
+        print(playerInstance.name) # test codeonebuttonClicked
+
 
 def donebuttonClicked():
-    global tileBank, allTiles, playerInstance
+    global tileBank, allTiles, playerInstance, screen
     # tileBank = []
     # tileBank = random.sample(allTiles, len(allTiles))
     playerInstance.tiles = [i for i in playerInstance.tiles if i.name != 'NA']
     # selectTile(playerInstance)
+    # pyg.display.update()
+    modifyScore(playerInstance)
+    screen.blit(basicfont.render('Player 1 Score: ' + str(playerInstance.score), True, (0, 0, 0), (250, 250, 250)), (630, 610))
+    print(playerInstance.score) # test code
     # pyg.display.update()
 
 
@@ -415,6 +420,7 @@ def modifyScore(player):
 # Pygame main function
 def main():
     # initialize pygame
+    global screen, basicfont
     pyg.init()
     screen = pyg.display.set_mode((800, 700))
     screen.fill((255, 255, 255))
@@ -435,11 +441,11 @@ def main():
     # Displaying Player scores and Tiles Remaining
     basicfont = pyg.font.SysFont(None, 25)
     button_text = basicfont.render('End Turn', True, (0, 0, 0), green_color)
-    p1_score_text = basicfont.render('Player 1 Score: ' + str(Player1.score), True, (0, 0, 0), (250, 250, 250))
-    p2_score_text = basicfont.render('Player 2 Score: ' + str(Player2.score), True, (0, 0, 0), (250, 250, 250))
+    screen.blit(basicfont.render('Player 1 Score: ' + str(Player1.score), True, (0, 0, 0), (250, 250, 250)), (630, 610))
+    screen.blit(basicfont.render('Player 2 Score: ' + str(Player2.score), True, (0, 0, 0), (250, 250, 250)),(630, 640))
     tiles_remaining_text = basicfont.render('Tiles Left: ' + '0', True, (0, 0, 0), (250, 250, 250))
-    screen.blit(p1_score_text, (630, 610))
-    screen.blit(p2_score_text, (630, 640))
+    # screen.blit(p1_score_text, (630, 610))
+    # screen.blit(p2_score_text, (630, 640))
     screen.blit(tiles_remaining_text, (630, 670))
     screen.blit(button_text, (478, 645))
 
